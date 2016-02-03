@@ -9,23 +9,23 @@
 \section{Exercise 2.1}
 
 \begin{enumerate}[label=\alph*)]
-\item Embedded -- The quality of being hidden.
-\item Device driver -- A set of software functions that facilitate the use of
+\item embedded -- the quality of being hidden.
+\item device driver -- a set of software functions that facilitate the use of
   an I/O port.
-\item Top down -- A methodology for describing design as a cyclic process,
-  beginning with a problem statement and ending up with a solution.
-\item Call graph -- A graphical way to define how the software/hardware modules
+\item top down -- a methodology describing design as a cyclic process, beginning
+  with a problem statement and ending up with a solution.
+\item call graph -- a graphical way to define how the software/hardware modules
   interact.
-\item Data flow graph -- A block diagram of a system, showing the flow of
+\item data flow graph -- a block diagram of a system, showing the flow of
   information.
-\item Successive refinement -- A technique to convert a problem statement into a
+\item successive refinement -- a technique to convert a problem statement into a
   software algorithm consisting of iteratively decomposing the task into a set
   of simpler subtasks.
-\item Dynamic efficiency -- A measure of how fast a program executes via seconds
+\item dynamic efficiency -- a measure of how fast a program executes via seconds
   or processor bus cycles.
-\item Static efficiency -- The number of memory bytes a program requires in
+\item static efficiency -- the number of memory bytes a program requires in
   execution.
-\item Real time -- A property of certain computer systems in which an upper
+\item real time -- a property of certain computer systems in which an upper
   bound is placed on the time required to perform the input-calculation-output
   sequence.
 \end{enumerate}
@@ -45,6 +45,46 @@ perform include: summing input currency, calculating and dispensing change, and
 dispensing a user's specific selection among a variety.
 
 \section{Exercise 7.1}
+
+To say a function is public is to indicate that other modules may invoke it,
+whereas to say a function is private indicates that only the module in which it
+is declared should use it. This distinction is important because private methods
+often lack documentation, serve no purpose towards the module's intended use,
+and can even alter a module's state in ways that introduce bugs. For example, a
+user of a dictionary might find the functions in Listing~\ref{lst:dict-public}
+useful, so they would be made public. Implementation-specific functions---such
+as a possible hash function, declared in Listing~\ref{lst:dict-private}, for a
+hash table-based implementation---have no reason to made public.
+
+\begin{listing}
+\caption{The public function declarations of a dictionary module.}
+\label{lst:dict-public}
+\begin{minted}{c}
+Dictionary* init(); // Constructor
+int insert(Dictionary* self, A* key, B* value);
+B* lookup(Dictionary* self, A* key);
+\end{minted}
+\end{listing}
+
+\begin{listing}
+\caption{A private hash function for a dictionary.}
+\label{lst:dict-private}
+\begin{minted}{c}
+int hash(void* key);
+\end{minted}
+\end{listing}
+
+\section{Exercise 7.2}
+
+To say a variable is public is to indicate that other modules may read and write
+to the variable, whereas to say a variable is private indicates that only the
+module in which it is declared should use it. This distinction is important
+because private variables very often contain stateful information sensitive to
+outside mutation. For example, an instance of an array implementation would
+likely have a private variable storing the number of elements in the array at
+any moment in time. Increasing the variable from another module could cause the
+program to access unallocated, insecure memory, and likewise decreasing the
+variable could cause the program to leak memory.
 
 \end{document}
 

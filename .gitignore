@@ -14,8 +14,12 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
+*.docx
+*.docx#
+*.zip
 *.pdf
 **/auto/*
+**/Code/*
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
