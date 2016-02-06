@@ -1,3 +1,8 @@
+    .thumb
+
+    .text
+    .align 2
+
     .set    P1IN,   0x40004c00  @ Port 1 Input
     .set    P2IN,   0x40004c01  @ Port 2 Input
     .set    P2OUT,  0x40004c03  @ Port 2 Output
@@ -19,15 +24,11 @@
     .set    SW1,    0x02        @ on the left side of the LaunchPad board
     .set    SW2,    0x10        @ on the right side of the LaunchPad board
 
-    .thumb
     .syntax unified
     .section .text
 
-_start:
-    .global _start
     .global main
-
-    b main
+    .type main, STT_FUNC
 
 main:
     bl      Port1_Init          @ initialize P1.1 and P1.4 and make them inputs

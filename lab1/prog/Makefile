@@ -47,6 +47,8 @@ ${COMPILER}/lab1.axf: ${COMPILER}/lab1.o
 ${COMPILER}/lab1.axf: ${ROOT}/driver/driverlib/MSP432P4xx/${COMPILER}/msp432p4xx_driverlib.a
 ${COMPILER}/lab1.axf: lab1_gcc.ld
 SCATTERgcc_lab1=lab1_gcc.ld
+#${COMPILER}/lab1.axf: msp432p401r.cmd
+#SCATTERgcc_lab1=msp432p401r.cmd
 ENTRY_lab1=ResetISR
 CFLAGSgcc=-DTARGET_IS_MSP432P4XX
 

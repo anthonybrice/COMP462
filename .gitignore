@@ -20,6 +20,7 @@
 *.pdf
 **/auto/*
 **/Code/*
+**/driver/*
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
