@@ -25,37 +25,65 @@
 
 \section{Exercise 2.3}
 
-\begin{enumerate}[label=(\alph*)]
-\item \textit{Claim.} $\dot{\theta}_y(t) = \dot{\theta}_y(0) + {1 \over I_{yy}}
-  \int_0^t T_y(\tau)\, d\tau$ is linear with respect to $T_y$ if and only if
-  $\dot{\theta}_y(0) = 0$.
-  \begin{proof} Assume that $\dot{\theta}_y(0) = 0$. Then
-    \begin{align*}
-      \dot{\theta}_{ay_1 + by_2}(t)
-      &= {1 \over I_{yy}} \int_0^t T_{ay_1}(\tau) + T_{by_2}(\tau)\, d\tau \\
-      &= {1 \over I_{yy}} \left( \int_0^t T_{ay_1} (\tau)\, d\tau + \int_0^t
-        T_{by_2} (\tau)\, d\tau \right) \\
-      &= \dot{\theta}_{ay_1}(t) + \dot{\theta}_{by_2}(t)\, .
-    \end{align*}
+\begin{enumerate}[label= (\alph*)]
+\item \textit{Claim.}
+  $\dot{\theta}_y(t) = \dot{\theta}_y(0) + {1 \over I_{yy}} \int_0^t T_y(\tau)\,
+  d\tau$ is linear if and only if $\dot{\theta}_y(0) = 0$.
 
-    Now
-  \end{proof}
+  STUB
+  % \begin{proof} Assume that $\dot{\theta}_y(0) = 0$. Then
+  %   \begin{align*}
+  %     \dot{\theta}_{ay_1 + by_2}(t)
+  %     &= {1 \over I_{yy}} \int_0^t T_{ay_1}(\tau) + T_{by_2}(\tau)\, d\tau \\
+  %     &= {1 \over I_{yy}} \left( \int_0^t T_{ay_1} (\tau)\, d\tau + \int_0^t
+  %       T_{by_2} (\tau)\, d\tau \right) \\
+  %     &= \dot{\theta}_{ay_1}(t) + \dot{\theta}_{by_2}(t)\, .
+  %   \end{align*}
+
+  %   Now
+  % \end{proof}
 \item \textit{Claim.} The cascade of any two linear actors is linear.
   \begin{proof}
     Consider that actors are only a special class of functions, and that the
     composition of linear functions is linear. Since to cascade actors is to
     compose their functions, the cascade of any two linear actors is linear.
   \end{proof}
-\item Consider system $S: X^2 \rightarrow Y$. $S$ is linear if it satisfies the
-  following:
-  $\forall\ x_1, x_2, x_3, x_4 \in X\ \textrm{and}\ \forall\ a,b,c,d \in
-  \mathbb{R},\ S(ax_1 + bx_2, cx_3 + dx_4) = acS(x_1, x_3) + adS(x_1, x_4) +
-  bcS(x_2, x_3) + bdS(x_2, x_4)$.
+\item Consider system $S\colon X^2 \rightarrow Y$. Augmenting for linearity
+  yields
+  \begin{align*}
+    S(ax_1 + bx_2, cx_3 + dx_4)
+    &= S(ax_1,cx_3 + dx_4) + S(bx_2,cx_3 + dx_4) \\
+    &= S(ax_1,cx_3) + S(ax_1,dx_4) + S(bx_2,cx_3) + S(bx_2,dx_4) \\
+    &= acS(x_1, x_3) + adS(x_1, x_4) + bcS(x_2, x_3) + bdS(x_2, x_4)\, .
+  \end{align*}
 \end{enumerate}
+
+\section{Exercise 2.5}
+
+STUB
 
 \section{Exercise 7.1}
 
+\textit{Claim.} The composition $f \circ g$ of two affine function $f$ and $g$
+is affine.
 
+\begin{proof}
+  Consider two affine functions: $f(x(t)) = ax(t) + b$ and
+  $g(x(t)) = cx(t) + d$. Then
+  \begin{align*}
+    f \circ g (x(t))
+    &= a(cx(t) + d) + b \\
+    &= acx(t) + d + b\, .
+  \end{align*}
+  Then we have a proportionality constant in $ac$ and a bias in $d + b$, so the
+  composition is affine.
+\end{proof}
+
+\section{Exercise 7.2}
+
+\begin{enumerate}[label= (\alph*)]
+\item
+\end{enumerate}
 
 \end{document}
 

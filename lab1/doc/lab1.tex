@@ -1,9 +1,74 @@
 \documentclass{abrice}
 
 \title{Comp 462: Lab 1}
+\author{Anthony Brice\protect\\\medskip Tucker Stone}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart, shapes.geometric, arrows, positioning}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum
+height=1cm, text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text
+centered, draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text
+centered, draw=black]
+\tikzstyle{preprocess} = [rectangle split, rectangle split horizontal, rectangle
+split parts=3, minimum height=1cm, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 \begin{document}
 \maketitle
+
+\section{Part B}
+
+\begin{figure}
+  \caption{A flowchart depicting the lab's algorithm.}
+  \centering
+  \begin{tikzpicture}[node distance=2cm,font={\sffamily \small}]
+    \node (main) [startstop] {Main};
+    \node[align=center] (in1) [io, below of=main] {Input from\\p1.1 and
+      p1.4};
+    \node (in1-right) [right of=in1] {};
+    \node (dec1) [decision, below of=in1] {};
+    \node[align=center] (proc1) [io, below left=4.8em of dec1]
+    {p1.0\\turns on};
+    \node[align=center] (proc2) [io, below right=4.8em of dec1]
+    {p1.0\\turns off};
+
+    \draw [arrow] (main) -- (in1);
+    \draw [arrow] (in1) -- (dec1);
+    \draw [arrow] (dec1)  -- node[anchor=south east, pos=0.5]
+    {\parbox{\widthof{pressed}}{
+        Both\\
+        pressed}} (proc1);
+    \draw [arrow] (dec1) -- node[anchor=south west, pos=0.6]
+    {\parbox{\widthof{Not both}}{Not both pressed}} (proc2);
+    \draw [arrow] (proc2) |-  (in1.east);
+    \draw [arrow] (proc1) |- (in1.west);
+  \end{tikzpicture}
+\end{figure}
+
+\section{Part C}
+
+\begin{listing}
+  \caption{Pseudocode describing the lab's algorithm.}
+  \begin{minted}{c}
+main():
+    loop:
+        Read from p1.1 and p1.4
+        if p1.1 and p1.4 are both pressed:
+            turn on p1.0
+        else:
+            turn off p1.0
+
+  \end{minted}
+\end{listing}
+
+\section{Part D}
+
+Please follow the link: \url{lab1.s}\,.
 
 \end{document}
 %%% Local Variables:
