@@ -3,24 +3,54 @@
 \title{Comp 462: Homework 1}
 \author{Anthony Brice}
 
+\tikzstyle[scale] = [regular polygon, regular polygon sides=3, draw=black, ]
+
+\tikzset{
+  scaler/.style={draw=black, isosceles triangle, minimum
+    height=4.5em},
+  node rotated/.style = {rotate=270},
+  border rotated/.style = {shape border rotate=270},
+  cosiner/.style = {draw=black, rectangle, minimum height=4.5em, minimum
+    width=5em}
+}
+
 \begin{document}
 \maketitle
 
 \section{Exercise 2.1}
-\begin{enumerate}[label=(\alph*)]
-\item Yes, other solutions exist. Consider $\ddot{y}(t) = - {\omega_0}^2
+\begin{enumerate}[label= (\alph*)]
+\item Since we have a homogeneous linear differential equation, any linear combination of solutions
+  is also a solution. Consider $\ddot{y}(t) = - {\omega_0}^2
   y(t)$. Then
   \begin{alignat*}{2}
-    && D^2(y) + {\omega_0}^2 D^0(y) &= 0 \\
-    && (D^2 + {\omega_0}^2 D^0)(y) &= 0 \\
-    && (D^2 + {\omega_0}^2)(y) &= 0 \\
-    && (D + i \omega_0)(D - i \omega_0)(y) &= 0 \\
-    &\Rightarrow \quad & y = e^{-i \omega_0 t}\quad \textrm{and}\quad &y = e^{i
+    && 0 &= D^2(y) + {\omega_0}^2 D^0(y) \\
+    && &= (D^2 + {\omega_0}^2 D^0)(y) \\
+    && &= (D^2 + {\omega_0}^2)(y) \\
+    && &= (D + i \omega_0)(D - i \omega_0)(y) \\
+    &\Rightarrow \quad && y = \ e^{-i \omega_0 t}\quad \textrm{and}\quad y = e^{i
       \omega_0 t} \\
-    &\Rightarrow \quad & y(t) = \sin(\omega_0 t)\, .
+    &\Rightarrow \quad && y(t) = \sin(\omega_0 t)\, .
   \end{alignat*}
 \item The initial displacement is $y(0) = \cos(\omega_0 \cdot 0) = 1$.
-\item STUB
+\item \hfill
+  \begin{figure}
+    \caption{An actor model of a tuning fork. The initial displacement is given
+      by the parameter $i$.}
+    \centering
+    \begin{tikzpicture}[node distance=12em,>=triangle 90, thick, ->]
+      \node (a) [scaler, label={[label distance=0.65em]\sffamily \small Scale}] {$\omega_0$};
+      \node (b) [cosiner, right of=a, label={\sffamily \small Cosiner}] {$\cos{}
+        \quad i$};
+      \node (a-left) [coordinate,left of=a] {};
+
+      \node[fit=(a) (b), draw, inner ysep=2.3em, inner xsep=3.5em,
+      label={145:\sffamily \small Tuning Fork}] {};
+
+      \draw +(-2,0) -- node [anchor=south east, pos=0.9] {$x(t)$} (a);
+      \draw [>->] (a) -- (b);
+      \draw [>-] (b) -- node [anchor=south west, pos=0.1] {$y(t)$} +(2.3,0);
+    \end{tikzpicture}
+  \end{figure}
 \end{enumerate}
 
 \section{Exercise 2.3}
@@ -56,6 +86,8 @@
     &= S(ax_1,cx_3) + S(ax_1,dx_4) + S(bx_2,cx_3) + S(bx_2,dx_4) \\
     &= acS(x_1, x_3) + adS(x_1, x_4) + bcS(x_2, x_3) + bdS(x_2, x_4)\, .
   \end{align*}
+
+  STUB
 \end{enumerate}
 
 \section{Exercise 2.5}
@@ -75,7 +107,7 @@ is affine.
     &= a(cx(t) + d) + b \\
     &= acx(t) + d + b\, .
   \end{align*}
-  Then we have a proportionality constant in $ac$ and a bias in $d + b$, so the
+  Then we have a proportionality constant of $ac$ and a bias of $d + b$, so the
   composition is affine.
 \end{proof}
 
